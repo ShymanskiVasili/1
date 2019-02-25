@@ -1,0 +1,235 @@
+\documentclass[10pt]{article}
+
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{lineno}
+
+
+
+
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage[round]{natbib}
+\let\cite\citep
+
+
+
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\abstractname}\par\nobreak}\footnotesize}
+  {\bigskip}
+
+\renewenvironment{quote}
+  {\begin{tabular}{|p{13cm}}}
+  {\end{tabular}}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}%
+
+\AtBeginDocument{\DeclareGraphicsExtensions{.pdf,.PDF,.eps,.EPS,.png,.PNG,.tif,.TIF,.jpg,.JPG,.jpeg,.JPEG}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,ngerman,english]{babel}
+
+
+
+
+
+
+
+
+\begin{document}
+
+\title{}
+
+
+
+\author[1]{Vasili Shymanski}%
+\affil[1]{Affiliation not available}%
+
+
+\vspace{-1em}
+
+
+
+  \date{\today}
+
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+
+
+
+
+
+
+
+
+\selectlanguage{russian}Руководство по Scrum@Scale {}
+
+~
+
+Наиболее полное руководтво по Scrum@Scale.
+
+Маштабирование которое Работает
+
+~
+
+Версия 1,04 -- 17 января 2019 года
+
+\par\null\par\null
+
+Цель Руководства по Scrum@Scale{}
+
+Скрам, изначально изложеный в Руководстве по Скраму, является
+фреймворком для разработки, поставки и поддержки сложных продуктов одной
+коммандой. С начала существования, его использование расширилось для
+разработки продуктов, процессов, услуг, и систем требующих усилий
+нескольких комманд. Scrum@Scale был создан для эффективной координации
+этой новой экосистемы комманд оптемизируя ~общую стратегию организации.
+Эта цель достигается основанием \selectlanguage{english},,minimal'no zhizniesposobnoi biurokratii''
+ispol'zuiuia svobodnuiu dlia mashtabirovniia arkhittiekturu, kotoraia rasshiriaietsia
+putiem obychnoi skram komandy funktsioniruiushchiei v ramkakh tsieloi orghanizatsii.
+
+~
+
+Eto rukovodstvo sotoit iz opriedielienii chastiei kotoryie sostavliaiut
+Scrum@Scale freimvork, vkliuchaia v siebia mashtabirovannyie roli,
+mashtabirovannyie sobytiia, artifakty priedpriiatiia, i pravila kotoryie
+obiediniaiut ikh vmiestie.
+
+~
+
+Dr. Jeff Sutherland razrabotal Scrum@Scale baziruias' na fundamiental'nykh
+printsipakh osnovannykh na Skramie, slozhnaia adaptativnoi tieorii, tieorii ighr,
+i obiektno-oriientirovannoi tiekhnologhii. Eto rukovodstvobylo razrabotanno
+pri uchastii mnoghikh opytnykh Skram praktikov osnovyvaias' na riezul'tatakh v
+ikh fierie dieiatiel'nosti. Tsiel' etogho rukovodstva priedostavit' chitatieliu
+vozmozhnost' impliemientatsii Scrum@Scale samostoiatiel'no.
+
+~
+
+Pochiemu Scrum@Scale?
+
+Skram byl razrabotan dlia odnoi komandy, chtoby imiet' vozmozhnost' rabotat'
+rabotat' v optimal'nom riezhimie sokhraniaia ustoichivaie razvitiie. Na praktikie
+bylo obnaruzhieno chto pri umielichiennii kolichiestva Skram komand v ramkakh
+rosta orghanizatsii, vykhod (rabochii produkt) i skorost' etikh komand
+nachinaiet padat' (iz-za takikh prichin kak kross komandnyie zavisimosti i
+dublirovaniie raboty). Blaghodoria etomu stalo ochievidno, chto triebuietsia
+freimvork dlia efiektivnoi koordinatsii miezhdu etimi komandami dlia
+dostizhieniia linieinogho mashtabirovaniia.
+
+~
+
+Pri ispol'zovanii svobodno-mashtabiroiemoi arkhitiektury, orghanizatsiia nie
+oghranichiena k rostu v opriedieliennyi sposob chieriez kompliekt~ arbitral'nykh
+pravil; skorieie ona mozhiet rasti natural'nym putiem osnovyvaias' na svoikh
+unikal'nykh potriebnostiakh i ustoichivom tiempie izmienienii, kotoryi mozhiet byt'
+priniat ghruppami liudiei, sostavliaiushchimi orghanizatsiiu. Prostota modieli
+Scum@Scale nieobkhodima dlia svobodno-mashtabiruieboi arkhitiektury~ i
+ostorozhno izbieghaiet dobavlieniia dopolnitiel'noi slozhnosti, kotoraia budiet
+prichinoi padienia produktivnosti komand po mierie uvieliechieniia ikh kolichiestva.
+
+~
+
+Scum@Scale priednaznachien dlia mashtabirovaniia orghanizatsii tsielikom: vsiekh
+otdielov, produktov i uslugh. On mozhien byt' priemienien vo vsiekh oblastiakh vshch
+vsiekh tipakh orghanizatsii v industrii, pravidiel'stvie, obrazovanii.
+
+Opriedielieniie Scrum@Scale
+
+Skram: Frieimvork v ramkakh kotorogho liudi moghut rieshat' slozhnyie
+adaptativnyie probliemy, produktivno i krieativno dostavliaia produkty
+naivysshiei tsiennosti.
+
+Skram ghaid priedstavliaiet soboi minimal'nyi nabor osobiennostiei pozvoliaiushchii
+ispiektirovaniie i adaptirovaniie chieriez radikal'nuiu prozrachnost',
+privodiashchii k innovatsiinosti, udovlietvoniiu kliienta, proizvoditiel'nosti i
+schast'iu komandy.
+
+Scrum@Scale: freimvork v ramkhakh kotorogho sieti Skram-kommand postanno
+rabotaiushchiie v ramkakh Skram ghaida~ moghut adriesovat' slozhno-adaptativnyie
+probliemyb krieativno dostavlia produkty naivysshiei vosmozhnoi tsiennosti.
+
+~Vnimaniie: Etimi produktami mozhiet byt' apparatura, proghramnoie
+obiespiechieniie, slozhno intieghrirovanyie sistiemy, protsiessy libo siervisy i
+t.d., v zavisimosti ot togho v kakoi sfierie rabotaiut Skram komandy.
+
+Scrum@Scale:
+
+\selectlanguage{ngerman}·~~~~~~~~ \selectlanguage{russian}Легкий -- минимальный уровень бюрократии {}
+
+\selectlanguage{ngerman}·~~~~~~~~ \selectlanguage{russian}Легкий к пониманию -- состоящий только из Скрам команд
+
+\selectlanguage{ngerman}·~~~~~~~~ \selectlanguage{russian}Сложный в достижении совершенства -- нуждается в внедрении
+новой рабочей модели
+
+Scrum@Scale это фрэйворк для маштабирования Скрама. Он значительно
+упрощает маштабирование скрама используя скрам.
+
+В скраме, уделени внимание разденению ответсвенности между \selectlanguage{english},,Chto'' i
+\selectlanguage{english},,Kak''. Takoie zhie vnianiie udielieno i v Scrum@Scale, takim obrazom sfiera
+polnomochii i otvietsviennosti chietko poniatna chtoby limitirovat' nienuzhnyie
+orghanizatsionnyie konflikty, kotoryie mieshaiut komandam v dostizhienii ikh
+optimal'noi produktivnosti.
+
+Scrum@Scale sostavlien iz chastiei kotoryie pozvoliaiut orghanizatsiiam
+podstraivat' stratieghiiu tranformatsii i iegho primienieniia. Eto daiet im
+vozmozhnost' opriedielit' tsieli dlia inkriemiendal'noi prioritiezatsii usilii po
+izmienieniiu v toi oblasti, kotoruiu oni schitaiut naibolieie tsiennoi ili
+naibolieie nuzhdaiushchieisia v izmienieniiakh, a zatiem pieriekhodiat k drughim.
+
+V razdielienii etikh dvukh {}
+
+~
+
+~
+
+~
+
+\selectlanguage{english}
+\clearpage
+\end{document}
+
